@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 const FunctionalComp = () => {
 
@@ -12,8 +12,51 @@ const FunctionalComp = () => {
         Password: 'Ketrina'
     })
 
+    //=================================================================
+    // call back function annonyamus function
+    // this component very time get update when compnent is updated
+    // useEffect(() => {
+
+    //     console.log('ruuning effect')
+    // })
+    //===========================================================================
+    // when we click on update or do any chnages at time he effect
+
+    // and only once time change
+
+    // useEffect(() => {
+    //     fetch('api no 3')
+    //     console.log('ruuning effect on perticular name or condtion')
+    // }, [name])
+
+    // useEffect(() => {
+    //     fetch('api no 5')
+    //     console.log('ruuning effect on perticular agee or condtion')
+    // }, [age])
+    //===========================================================================
+
+    // in this condition 2 log statment print
+    // this are all mounting 
+    useEffect(() => {
+        fetch('api no 6')
+        console.log('ruuning effect on perticular agee or condtion')
+    }, [name, user])
+
+    //===============================================================================
+
+    useEffect(() => {
+
+        return () => {
+            clearTimeout(timer)
+            document.removeEventListener('click', someListener)
+            console.log('unmounting');
+        }
+    }, [])
+
+
+
     //distruchring means assigne value from array to endependant
-    useState()
+    //useState()
     let show = true
     let showjax
 
@@ -27,17 +70,17 @@ const FunctionalComp = () => {
         <>
 
             <div>name - {name} </div>
-            <div>Hello </div>
+            <div>age - {age} </div>
             <div>Hello </div>
             <div>Hello </div>
             <br></br>
-            {show && <button onClick={() => setName('Nahush')}>show</button>}
-
+            {show && <button onClick={() => setName('Nahush')}>chnages on name</button>}
+            <button onClick={() => setAge(101)}>chnages on age</button>
 
             <div>User info</div>
             <div>username:{user.Username}</div>
             <div>password:{user.Password} </div>
-            <button onClick={() => setUser({Username:'Nahush',Password: 'Ketrina'})}> Update</button>
+            <button onClick={() => setUser({ Username: 'Nahush', Password: 'Ketrina' })}> Update</button>
 
         </>
 
