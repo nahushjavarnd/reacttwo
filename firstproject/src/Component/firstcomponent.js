@@ -45,10 +45,11 @@ const FunctionalComp = () => {
     //===============================================================================
 
     useEffect(() => {
+        //clearTimeout(timer)
+        //document.removeEventListener('click', someListener)
 
         return () => {
-            clearTimeout(timer)
-            document.removeEventListener('click', someListener)
+           
             console.log('unmounting');
         }
     }, [])
